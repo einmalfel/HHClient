@@ -7,6 +7,11 @@ android {
         buildToolsVersion "27.0.1"
         minSdkVersion 14
         targetSdkVersion 27
+
+        compileOptions {
+            targetCompatibility 1.8
+            sourceCompatibility 1.8
+        }
     }
 }
 
