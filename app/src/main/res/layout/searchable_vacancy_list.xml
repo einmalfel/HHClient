@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/searchable_vacancy_list_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:iconifiedByDefault="false" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/searchable_vacancy_list_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--prevent search view from gaining focus and opening fullscreen dialog in landscape mode upon inflation-->
+        <requestFocus />
+    </android.support.v7.widget.RecyclerView>
+</merge>
