@@ -1,0 +1,15 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.einmalfel.hhtest"
+        buildToolsVersion "27.0.1"
+        minSdkVersion 14
+        targetSdkVersion 27
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+}
