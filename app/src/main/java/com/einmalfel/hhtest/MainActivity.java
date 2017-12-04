@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import com.einmalfel.hhtest.data.Vacancy;
 import com.einmalfel.hhtest.data.VacancyDataProvider;
 import com.einmalfel.hhtest.data.impl.HhRestClient;
+import com.einmalfel.hhtest.data.impl.MemCachedVacancyDataProvider;
 import com.einmalfel.hhtest.ui.SearchableVacancyList;
 
 public class MainActivity extends AppCompatActivity {
+  private static final int SEARCH_CACHE_SIZE = 10;
   private SearchableVacancyList searchableVacancyList;
   private VacancyListPresenter listPresenter;
 
@@ -25,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     listPresenter = (VacancyListPresenter) getLastCustomNonConfigurationInstance();
     if (listPresenter == null) {
-      VacancyDataProvider dataProvider = new HhRestClient("https://api.hh.ru");
+      VacancyDataProvider dataProvider = new MemCachedVacancyDataProvider(
+          new HhRestClient("https://api.hh.ru"), SEARCH_CACHE_SIZE);
       listPresenter = new VacancyListPresenter(dataProvider,
                                                getString(R.string.list_nothing_found));
     }
