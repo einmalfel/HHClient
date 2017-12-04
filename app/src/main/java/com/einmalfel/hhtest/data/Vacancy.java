@@ -2,10 +2,13 @@ package com.einmalfel.hhtest.data;
 
 import android.support.annotation.Nullable;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
 
-public class Vacancy {
+public class Vacancy implements Serializable {
+  private static final long SerialVersionUID = 0;
+
   public final long id;
   public final String description;
   @Nullable
@@ -89,7 +92,13 @@ public class Vacancy {
     this.snippet = snippet;
   }
 
-  public class Snippet {
+  @Override
+  public String toString() {
+    return "Vacancy(id=" + id + ")";
+  }
+
+  public class Snippet implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String requirement;
     public final String responsibility;
 
@@ -99,7 +108,8 @@ public class Vacancy {
     }
   }
 
-  public class Schedule {
+  public class Schedule implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String id;
     public final String name;
 
@@ -109,7 +119,8 @@ public class Vacancy {
     }
   }
 
-  public class Experience {
+  public class Experience implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String id;
     public final String name;
 
@@ -119,7 +130,8 @@ public class Vacancy {
     }
   }
 
-  public class Department {
+  public class Department implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String id;
     public final String name;
 
@@ -129,7 +141,8 @@ public class Vacancy {
     }
   }
 
-  public class Employment {
+  public class Employment implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String id;
     public final String name;
 
@@ -139,7 +152,8 @@ public class Vacancy {
     }
   }
 
-  public class BillingType {
+  public class BillingType implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String id;
     public final String name;
 
@@ -149,7 +163,8 @@ public class Vacancy {
     }
   }
 
-  public class Type {
+  public class Type implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String id;
     public final String name;
 
@@ -159,7 +174,8 @@ public class Vacancy {
     }
   }
 
-  public class Area {
+  public class Area implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String id;
     public final String name;
     public final String url;
@@ -171,7 +187,8 @@ public class Vacancy {
     }
   }
 
-  public class Test {
+  public class Test implements Serializable {
+    private static final long SerialVersionUID = 0;
     private final boolean required;
 
     public Test(boolean required) {
@@ -179,7 +196,8 @@ public class Vacancy {
     }
   }
 
-  public class Salary {
+  public class Salary implements Serializable {
+    private static final long SerialVersionUID = 0;
     @Nullable
     public final Long from;
     @Nullable
@@ -196,7 +214,8 @@ public class Vacancy {
     }
   }
 
-  public class Specialization {
+  public class Specialization implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final long profarea_id;
     public final String profarea_name;
     public final long id;
@@ -210,7 +229,8 @@ public class Vacancy {
     }
   }
 
-  public class Employer {
+  public class Employer implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final Map<String, String> logo_urls;
     public final String name;
     public final String url;
@@ -231,7 +251,8 @@ public class Vacancy {
     }
   }
 
-  public class Contact {
+  public class Contact implements Serializable {
+    private static final long SerialVersionUID = 0;
     @Nullable
     public final String name;
     @Nullable
@@ -248,7 +269,8 @@ public class Vacancy {
     }
   }
 
-  public class MetroStation {
+  public class MetroStation implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String stationId;
     public final String stationName;
     public final String lineId;
@@ -267,7 +289,8 @@ public class Vacancy {
     }
   }
 
-  public class Address {
+  public class Address implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String city;
     public final String street;
     public final String building;
@@ -288,7 +311,8 @@ public class Vacancy {
     }
   }
 
-  public class Skill {
+  public class Skill implements Serializable {
+    private static final long SerialVersionUID = 0;
     public final String string;
 
     public Skill(String string) {
