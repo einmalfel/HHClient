@@ -10,10 +10,12 @@ import com.einmalfel.hhtest.data.VacancyDataProvider;
 import com.einmalfel.hhtest.data.impl.HhRestClient;
 import com.einmalfel.hhtest.data.impl.MemCachedVacancyDataProvider;
 import com.einmalfel.hhtest.ui.SearchableVacancyList;
+import com.einmalfel.hhtest.ui.VacancyDetailsView;
 
 public class MainActivity extends AppCompatActivity {
   private static final int SEARCH_CACHE_SIZE = 10;
   private SearchableVacancyList searchableVacancyList;
+  private VacancyDetailsView detailsView;
   private VacancyListPresenter listPresenter;
 
   @Override
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     setContentView(R.layout.activity_main);
     searchableVacancyList = findViewById(R.id.list);
+    detailsView = findViewById(R.id.details);
 
     if (savedInstanceState != null) {
       searchableVacancyList.restore(savedInstanceState);
@@ -50,11 +53,19 @@ public class MainActivity extends AppCompatActivity {
         new VacancyListPresenter.Navigator() {
           @Override
           public void showVacancy(@NonNull Vacancy vacancy) {
-            startActivity(VacancyDetailsActivity.getIntent(MainActivity.this, vacancy));
+            if (detailsView != null) {
+              detailsView.setData(vacancy);
+            } else {
+              startActivity(VacancyDetailsActivity.getIntent(MainActivity.this, vacancy));
+            }
           }
 
           @Override
-          public void updateVacancy(@Nullable Vacancy vacancy) {}
+          public void updateVacancy(@Nullable Vacancy vacancy) {
+            if (detailsView != null) {
+              detailsView.setData(vacancy);
+            }
+          }
         });
   }
 
