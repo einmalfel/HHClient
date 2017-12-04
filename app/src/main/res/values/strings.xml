@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HHTest</string>
+    <string name="requirements_caption">Requirements:</string>
+    <string name="responsibilities_caption">Responsibilities:</string>
+    <string name="address_caption">Address:</string>
+    <string name="vacancy_details_empty">No vacancy selected</string>
 </resources>
